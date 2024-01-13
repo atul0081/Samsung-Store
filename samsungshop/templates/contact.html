@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Samsung Online Store</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'staticbootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'staticbootstrap/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+
+
+<body>
+    {% include 'header.html' %}
+    <div class="container">
+    
+
+        <div class="row mt-2 mb-3">
+            <iframe
+                 src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d30262.924903352956!2d73.8250830686531!3d18.5349740839028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d18.530303999999997!2d73.8295808!4m5!1s0x3bc2c08a77d0be21%3A0xb1321b518d746811!2sGVJ6%2B4J9%20Flipkart%20Ekart%2C%20Sangamvadi%2C%20Pune%2C%20Maharashtra%20411001!3m2!1d18.5302968!2d73.8616117!5e0!3m2!1sen!2sin!4v1703789388806!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             
+        </div>
+
+        
+    </div>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    
+
+
+    {% include 'footer.html' %}
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Samsung Online Store</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href="{% static 'staticbootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'staticbootstrap/css/style.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+  {% include 'header.html' %}
+  <div class="container">
+
+    <div class="row my-4">
+      <div class="col-md-9">
+        <div class="row box">
+          <p>Customer Details</p>
+        </div>
+        <div class="row">
+          {% for i in product %}
+          {% if forloop.counter == 1 %}
+
+
+          <p>Name :{{i.uid.username}} </p>
+          <p>Mobile :{{i.uid.mobile}}</p>
+          <p>Email :{{i.uid.email}}</p>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div><!--row2 - col 1-->
+      <div class="col-md-3">
+
+        <div class="row">
+          <h4>Cart Summary</h4>
+          <p>Total Items : {{cnt}} </p>
+          <p>Total Price : {{total}}</p>
+          <p>All Items : {{total_product}}</p>
+          <p><a href="/placeorder"><button class="btn btn-danger">Place Order</button></a></p>
+        </div>
+
+
+      </div><!--row2 - col 2-->
+    </div><!--end of 2nd row-->
+
+    <div class="row">
+      <div class="row box">Cart Details</div>
+      {% for i in product %}
+      <div class="row">
+        <div class="col-md-3">
+          <img src="{{i.pid.pimage.url}}" style="width: 100%; height: 200px;;" alt="">
+        </div><!--image end-->
+        <div class="col-md-9">
+          <p><b>PRODUCT :</b>{{i.pid.name}}</p>
+          <p><b>PRODUCT :</b>Rs.{{i.pid.price}}</p>
+          {% if i.cat == 1 %}
+        <p><b>Category:</b>Tv</p>
+        {% elif i.cat == 2 %}
+        <p><b>Category:</b>Mobile</p>
+        {% elif i.cat == 3 %}
+        <p><b>Category:</b>Washing Machine</p>
+        {% else %}
+        <p><b>Category:</b>Air Conditioners</p>
+        {% endif %}
+          <p><b>PRODUCT DETAILS:</b>{{i.pid.detail}}</p>
+          <p>
+            <a href="/updateqty/0{{i.id}}"><button class="btn">-</button></a>
+            <input type="number" value="{{i.qty}}">
+            <a href="/updateqty/1{{i.id}}"><button class="btn">+</button></a>
+          </p>
+          <p><a href="/remove/{{i.id}}"><button class="btn btn-danger">Remove</button></a></p>
+        </div><!--detail end -->
+      </div><!-- product row end -->
+      {% endfor %}
+    </div><!--end of 3rd row-->
+    {% include 'footer.html' %}
+  </div>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+</body>
+
+</html>

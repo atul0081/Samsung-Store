@@ -1,0 +1,17 @@
+.anchor{
+    text-decoration: none;
+    color: black;
+
+}
+.navbar-nav .nav-link {
+    margin-right: 50px; /* Adjust the value as needed */
+}
+.card-img-top{
+    width: 200px;
+    height: 200px;
+    
+}
+
+
+
+/* .bi bi-house-door-fill */
